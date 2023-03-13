@@ -1,0 +1,26 @@
+{
+  "name": "if3260_tugas2_k02_g07",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/scripts/index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amike31/IF3260_Tugas2_K02_G07.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amike31/IF3260_Tugas2_K02_G07/issues"
+  },
+  "homepage": "https://github.com/Amike31/IF3260_Tugas2_K02_G07#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.19",
+    "typescript": "^4.9.5"
+  }
+}
