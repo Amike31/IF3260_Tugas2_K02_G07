@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx tsc --watch"
+    "dev": "npx tsc --watch",
+    "reset-js": "rm -rf src/dist/*.js",
+    "reset-js-windows": "del /f /s /q src\\dist\\*.js"
   },
   "repository": {
     "type": "git",
