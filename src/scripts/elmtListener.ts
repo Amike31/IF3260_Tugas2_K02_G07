@@ -67,6 +67,6 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
     elmtContainer.buttonReset.addEventListener("click", () => {
         globalVars.models = [];
         sceneSetup(contextGL);
-        updateRotationSlider(contextGL, [0, 1, 2])
+        updateRotationSlider(elmtContainer, [0, 1, 2])
     });
 }
