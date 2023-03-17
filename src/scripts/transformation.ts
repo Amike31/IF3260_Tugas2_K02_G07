@@ -7,7 +7,7 @@ function translate_object(axis: string, value: number) {
     } else if (axis == "y") {
         y = value;
     } else if (axis == "z") {
-        // TODO
+        z = value;
     }
 
     let affineMatrix = affine_translation(x, y, z);
