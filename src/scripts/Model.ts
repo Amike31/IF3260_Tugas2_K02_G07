@@ -33,6 +33,22 @@ class Model {
     this.modelMatrix = props.modelMatrix;
   }
 
+  getCenterPoint(): number[] {
+    const centerPoint = [0, 0, 0];
+
+    for (let i = 0; i < this.numVertices; i++) {
+      centerPoint[0] += this.vertices[i * 3];
+      centerPoint[1] += this.vertices[i * 3 + 1];
+      centerPoint[2] += this.vertices[i * 3 + 2];
+    }
+
+    centerPoint[0] /= this.numVertices;
+    centerPoint[1] /= this.numVertices;
+    centerPoint[2] /= this.numVertices;
+    console.log("center: "+centerPoint);
+    return centerPoint;
+  }
+
   draw(contextGL: ContextGL) {
     const gl = contextGL.gl;
     const Pmatrix = contextGL.Pmatrix;

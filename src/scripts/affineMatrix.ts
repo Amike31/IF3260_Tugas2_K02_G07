@@ -13,7 +13,7 @@ function affine_translation(tx:number = 0, ty:number = 0, tz:number = 0): number
     return result;
 }
 
-function affine_scale(sx:number = 1, sy:number = 1, sz:number = 1): number[] {
+function affine_scaling(sx:number = 1, sy:number = 1, sz:number = 1): number[] {
     const result = new Array(16).fill(0);
     result[0] = sx;
     result[5] = sy;

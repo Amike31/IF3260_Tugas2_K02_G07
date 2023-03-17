@@ -10,7 +10,8 @@ class GlobalVars {
   public oldValueRotY = 0;
   public oldValueRotZ = 0;
   public oldValueMove = 0;
-  public isShading = false;
+  public scaleFactor: number = 1;
+  public isShading: boolean = false;
 
   public vertices: number[] = [];
   public colors: number[] = [];
