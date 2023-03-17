@@ -85,6 +85,20 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
         drawAll(contextGL);
     });
 
+    // PROJECTION
+    elmtContainer.buttonProjOrthographic.addEventListener("click", () => {
+        globalVars.camera.setProjection("orthographic");
+        drawAll(contextGL);
+    });
+    elmtContainer.buttonProjPerspective.addEventListener("click", () => {
+        globalVars.camera.setProjection("perspective");
+        drawAll(contextGL);
+    });
+    elmtContainer.buttonProjOblique.addEventListener("click", () => {
+        globalVars.camera.setProjection("oblique");
+        drawAll(contextGL);
+    });
+
     // RESET
     elmtContainer.buttonReset.addEventListener("click", () => {
         globalVars.models = [];
