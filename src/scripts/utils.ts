@@ -23,3 +23,11 @@ function updateSelected(selectedShape: string) {
     globalVars.selectedIdx = getSelectedObjectIdx();
     // console.log("Selected: " + selectedShape + " at index " + globalVars.selectedIdx)
 }
+
+function updateRotationSlider(elmtContainer: ElmtContainer, model_ids: number[]) {
+  model_ids.forEach(id => {
+    elmtContainer.rotateXObject.valueAsNumber = globalVars.models[id].oldRotateX;
+    elmtContainer.rotateYObject.valueAsNumber = globalVars.models[id].oldRotateY;
+    elmtContainer.rotateZObject.valueAsNumber = globalVars.models[id].oldRotateZ;  
+  });
+}

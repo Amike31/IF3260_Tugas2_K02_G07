@@ -3,9 +3,7 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
     // CHANGE OBJECT
     elmtContainer.selectShape.addEventListener("change", () => {
         updateSelected(elmtContainer.selectShape.value);
-        elmtContainer.rotateXObject.valueAsNumber = globalVars.models[globalVars.selectedIdx].oldRotateX;
-        elmtContainer.rotateYObject.valueAsNumber = globalVars.models[globalVars.selectedIdx].oldRotateY;
-        elmtContainer.rotateZObject.valueAsNumber = globalVars.models[globalVars.selectedIdx].oldRotateZ; 
+        updateRotationSlider(elmtContainer, [globalVars.selectedIdx]);
     });
 
     // TRANSLATION
@@ -63,5 +61,12 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
     elmtContainer.rotateZObject.addEventListener("input", () => {
         rotate_object("z", elmtContainer.rotateZObject.valueAsNumber);
         drawAll(contextGL);
+    });
+
+    // RESET
+    elmtContainer.buttonReset.addEventListener("click", () => {
+        globalVars.models = [];
+        sceneSetup(contextGL);
+        updateRotationSlider(contextGL, [0, 1, 2])
     });
 }
