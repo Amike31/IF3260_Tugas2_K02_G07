@@ -21,7 +21,6 @@ function getSelectedObjectIdx() {
 function updateSelected(selectedShape: string) {
     globalVars.selectedShape = selectedShape;
     globalVars.selectedIdx = getSelectedObjectIdx();
-    // console.log("Selected: " + selectedShape + " at index " + globalVars.selectedIdx)
 }
 
 function updateRotationSlider(elmtContainer: ElmtContainer, model_ids: number[]) {

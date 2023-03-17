@@ -99,7 +99,6 @@ const sceneSetup = (contextGL: ContextGL) => {
       vertices: globalVars.vertices.slice(0, 96 * 3),
       color: colors.slice(0, 96 * 3),
       normals: vertexNormals.slice(0, 96 * 3),
-      projMatrix: defaultMatrix.projection,
       modelMatrix: defaultMatrix.model,
     })
   );
@@ -113,7 +112,6 @@ const sceneSetup = (contextGL: ContextGL) => {
       vertices: globalVars.vertices.slice(96 * 3, 96 * 3 + 64 * 3),
       color: colors.slice(96 * 3, 96 * 3 + 64 * 3),
       normals: vertexNormals.slice(96 * 3, 96 * 3 + 64 * 3),
-      projMatrix: defaultMatrix.projection,
       modelMatrix: defaultMatrix.model,
     })
   );

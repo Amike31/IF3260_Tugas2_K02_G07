@@ -6,7 +6,6 @@ class GlobalVars {
 
   public selectedShape: string = "cube";
   public selectedIdx: number = 0;
-  public oldValueMove = 0;
   public scaleFactor: number = 1;
   public isShading: boolean = false;
 
@@ -14,6 +13,11 @@ class GlobalVars {
   public colors: number[] = [];
   public normals: number[] = [];
   public models: Model[] = [];
+  public camera: Camera = new Camera({oldCameraX: 0,
+    oldCameraY: 0,
+    oldCameraZ: 0,
+    viewMatrix: defaultMatrix.view,
+    projMatrix: defaultMatrix.projection});
 }
 
 const globalVars = new GlobalVars();

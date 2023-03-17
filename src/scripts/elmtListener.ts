@@ -63,6 +63,28 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
         drawAll(contextGL);
     });
 
+    // CAMERA
+    elmtContainer.buttonZoomIn.addEventListener("click", () => {
+        globalVars.camera.zoom(1.1);
+        drawAll(contextGL);
+    });
+    elmtContainer.buttonZoomOut.addEventListener("click", () => {
+        globalVars.camera.zoom(0.9);
+        drawAll(contextGL);
+    });
+    elmtContainer.cameraRotateX.addEventListener("input", () => {
+        globalVars.camera.rotate("x", elmtContainer.cameraRotateX.valueAsNumber);
+        drawAll(contextGL);
+    });
+    elmtContainer.cameraRotateY.addEventListener("input", () => {
+        globalVars.camera.rotate("y", elmtContainer.cameraRotateY.valueAsNumber);
+        drawAll(contextGL);
+    });
+    elmtContainer.cameraRotateZ.addEventListener("input", () => {
+        globalVars.camera.rotate("z", elmtContainer.cameraRotateZ.valueAsNumber);
+        drawAll(contextGL);
+    });
+
     // RESET
     elmtContainer.buttonReset.addEventListener("click", () => {
         globalVars.models = [];

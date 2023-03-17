@@ -6,7 +6,6 @@ interface IModelProps {
   vertices: number[];
   color: number[];
   normals: number[];
-  projMatrix: number[];
   modelMatrix: number[];
 }
 
@@ -18,7 +17,6 @@ class Model {
   public vertices: number[];
   public color: number[];
   public normals: number[];
-  public projMatrix: number[];
   public modelMatrix: number[];
   public oldRotateX: number = 0;
   public oldRotateY: number = 0;
@@ -32,7 +30,6 @@ class Model {
     this.vertices = props.vertices;
     this.color = props.color;
     this.normals = props.normals;
-    this.projMatrix = props.projMatrix;
     this.modelMatrix = props.modelMatrix;
   }
 
@@ -48,7 +45,6 @@ class Model {
     centerPoint[0] /= this.numVertices;
     centerPoint[1] /= this.numVertices;
     centerPoint[2] /= this.numVertices;
-    console.log("center: "+centerPoint);
     return centerPoint;
   }
 
@@ -59,8 +55,8 @@ class Model {
     const Mmatrix = contextGL.Mmatrix;
     const Nmatrix = contextGL.Nmatrix;
 
-    gl.uniformMatrix4fv(Pmatrix, false, this.projMatrix);
-    gl.uniformMatrix4fv(Vmatrix, false, defaultMatrix.view);
+    gl.uniformMatrix4fv(Pmatrix, false, globalVars.camera.projMatrix);
+    gl.uniformMatrix4fv(Vmatrix, false, globalVars.camera.viewMatrix);
     gl.uniformMatrix4fv(Mmatrix, false, this.modelMatrix);
 
     if (globalVars.isShading) {
