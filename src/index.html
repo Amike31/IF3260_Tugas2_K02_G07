@@ -60,8 +60,9 @@
           </div>
         </div>
       </header>
-      <!-- Sidebar -->
+      <!-- Container: Sidebar & Canvas-->
       <div class="h-full flex flex-row w-screen overflow-hidden">
+        <!-- Sidebar -->
         <div class="border-r border-gray-600 bg-gray-700 w-3/12">
           <!-- Choosen Object -->
           <div
@@ -79,7 +80,7 @@
               >
                 <option value="cube">Hollow Cube</option>
                 <option value="pyramid">Hollow Pyramid</option>
-                <option value="prism">Hollow Shape?</option>
+                <option value="prism">Hollow Prism</option>
               </select>
             </div>
           </div>
@@ -344,7 +345,7 @@
         </div>
         <!-- Canvas -->
         <div class="w-9/12 h-full bg-gray-700">
-          <canvas id="canvas" width="1400" height="1400" class="bg-white">
+          <canvas id="canvas" width="1200" height="1200" class="bg-white">
             Oops ... your browser doesn't support the HTML5 canvas element
           </canvas>
         </div>
@@ -357,7 +358,12 @@
     <script type="text/javascript" src="dist/ContextGL.js"></script>
     <script type="text/javascript" src="dist/Model.js"></script>
     <script type="text/javascript" src="dist/render.js"></script>
+    <script type="text/javascript" src="dist/utils.js"></script>
     <script type="text/javascript" src="dist/setup.js"></script>
+    <script type="text/javascript" src="dist/matrixOp.js"></script>
+    <script type="text/javascript" src="dist/affineMatrix.js"></script>
+    <script type="text/javascript" src="dist/transformation.js"></script>
+    <script type="text/javascript" src="dist/elmtListener.js"></script>
     <script type="text/javascript" src="dist/main.js"></script>
   </body>
 </html>

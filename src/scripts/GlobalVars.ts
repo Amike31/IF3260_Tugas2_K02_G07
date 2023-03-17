@@ -4,6 +4,8 @@ class GlobalVars {
   public Mmatrix: WebGLUniformLocation | null = null;
   public Nmatrix: WebGLUniformLocation | null = null;
 
+  public selectedShape: string = "cube";
+  public selectedIdx: number = 0;
   public oldValueRotX = 0;
   public oldValueRotY = 0;
   public oldValueRotZ = 0;

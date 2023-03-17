@@ -92,6 +92,20 @@ const verticesSetup = () => {
 const sceneSetup = (contextGL: ContextGL) => {
   globalVars.models.push(
     new Model({
+      name: "cube",
+      offset: 0,
+      end: 24,
+      numVertices: 96,
+      vertices: globalVars.vertices.slice(0, 96 * 3),
+      color: colors.slice(0, 96 * 3),
+      normals: vertexNormals.slice(0, 96 * 3),
+      projMatrix: defaultMatrix.projection,
+      modelMatrix: defaultMatrix.model,
+    })
+  );
+
+  globalVars.models.push(
+    new Model({
       name: "pyramid",
       offset: 24,
       end: 40,
@@ -104,7 +118,10 @@ const sceneSetup = (contextGL: ContextGL) => {
     })
   );
 
-  globalVars.models.forEach((model) => {
-    model.draw(contextGL);
-  });
+  drawAll(contextGL);
 };
+
+const selectedSetup = (elmtContainer: ElmtContainer) => {
+  const selectedShape = elmtContainer.selectShape.value;
+  updateSelected(selectedShape);
+}

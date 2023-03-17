@@ -5,6 +5,8 @@ const main = () => {
   verticesSetup();
   bufferSetup(contextGL);
   sceneSetup(contextGL);
+  selectedSetup(elmtContainer);
+  addElmtListener(elmtContainer, contextGL);
 };
 
 main();
