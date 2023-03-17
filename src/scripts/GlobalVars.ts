@@ -6,9 +6,6 @@ class GlobalVars {
 
   public selectedShape: string = "cube";
   public selectedIdx: number = 0;
-  public oldValueRotX = 0;
-  public oldValueRotY = 0;
-  public oldValueRotZ = 0;
   public oldValueMove = 0;
   public scaleFactor: number = 1;
   public isShading: boolean = false;

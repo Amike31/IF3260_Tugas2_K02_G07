@@ -1,9 +1,14 @@
 function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
     
-    // TRANSLATION
+    // CHANGE OBJECT
     elmtContainer.selectShape.addEventListener("change", () => {
         updateSelected(elmtContainer.selectShape.value);
+        elmtContainer.rotateXObject.valueAsNumber = globalVars.models[globalVars.selectedIdx].oldRotateX;
+        elmtContainer.rotateYObject.valueAsNumber = globalVars.models[globalVars.selectedIdx].oldRotateY;
+        elmtContainer.rotateZObject.valueAsNumber = globalVars.models[globalVars.selectedIdx].oldRotateZ; 
     });
+
+    // TRANSLATION
     elmtContainer.buttonTranslateLeft.addEventListener("click", () => {
         translate_object("x", -0.1);
         drawAll(contextGL);
@@ -31,7 +36,7 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
 
     // SCALING
     elmtContainer.scaleFactor.addEventListener("change", () => {
-        globalVars.scaleFactor = parseFloat(elmtContainer.scaleFactor.value);
+        globalVars.scaleFactor = elmtContainer.scaleFactor.valueAsNumber;
     });
     elmtContainer.scaleButton.addEventListener("click", () => {
         resize_object(globalVars.scaleFactor);
@@ -43,6 +48,20 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
     });
     elmtContainer.buttonShrink.addEventListener("click", () => {
         resize_object(0.8);
+        drawAll(contextGL);
+    });
+
+    // ROTATION
+    elmtContainer.rotateXObject.addEventListener("input", () => {
+        rotate_object("x", elmtContainer.rotateXObject.valueAsNumber);
+        drawAll(contextGL);
+    });
+    elmtContainer.rotateYObject.addEventListener("input", () => {
+        rotate_object("y", elmtContainer.rotateYObject.valueAsNumber);
+        drawAll(contextGL);
+    });
+    elmtContainer.rotateZObject.addEventListener("input", () => {
+        rotate_object("z", elmtContainer.rotateZObject.valueAsNumber);
         drawAll(contextGL);
     });
 }

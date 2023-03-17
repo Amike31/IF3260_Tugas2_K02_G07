@@ -20,6 +20,9 @@ class Model {
   public normals: number[];
   public projMatrix: number[];
   public modelMatrix: number[];
+  public oldRotateX: number = 0;
+  public oldRotateY: number = 0;
+  public oldRotateZ: number = 0;
 
   constructor(props: IModelProps) {
     this.name = props.name;
