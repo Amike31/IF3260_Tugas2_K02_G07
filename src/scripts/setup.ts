@@ -64,11 +64,27 @@ const bufferSetup = (contextGL: ContextGL) => {
 };
 
 const verticesSetup = () => {
+  for (let i = 0; i < 12 * 4 * 6; i++) {
+    if (i % 3 == 0) {
+      globalVars.vertices.push(cubeVertices[i] - 0.7);
+    } else {
+      globalVars.vertices.push(cubeVertices[i]);
+    }
+  }
+
   for (let i = 0; i < 12 * 4 * 4; i++) {
     if (i % 3 == 1) {
       globalVars.vertices.push(pyramidVertices[i] + 0.5);
     } else {
       globalVars.vertices.push(pyramidVertices[i]);
+    }
+  }
+
+  for (let i = 0; i < 12 * 4 * 5; i++) {
+    if (i % 3 == 0) {
+      globalVars.vertices.push(prismVertices[i] + 0.7);
+    } else {
+      globalVars.vertices.push(prismVertices[i]);
     }
   }
 };
