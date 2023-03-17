@@ -32,4 +32,26 @@ class Model {
     this.projMatrix = props.projMatrix;
     this.modelMatrix = props.modelMatrix;
   }
+
+  draw(contextGL: ContextGL) {
+    const gl = contextGL.gl;
+    const Pmatrix = contextGL.Pmatrix;
+    const Vmatrix = contextGL.Vmatrix;
+    const Mmatrix = contextGL.Mmatrix;
+    const Nmatrix = contextGL.Nmatrix;
+
+    gl.uniformMatrix4fv(Pmatrix, false, this.projMatrix);
+    gl.uniformMatrix4fv(Vmatrix, false, defaultMatrix.view);
+    gl.uniformMatrix4fv(Mmatrix, false, this.modelMatrix);
+
+    if (globalVars.isShading) {
+      // TODO
+    } else {
+      gl.uniformMatrix4fv(Nmatrix, false, defaultMatrix.normal);
+    }
+
+    for (let i = this.offset; i < this.end; i++) {
+      gl.drawArrays(gl.TRIANGLE_FAN, i * 4, 4);
+    }
+  }
 }

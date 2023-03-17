@@ -3,6 +3,10 @@ class ContextGL {
   public readonly vertexShader: WebGLShader;
   public readonly fragmentShader: WebGLShader;
   public readonly program: WebGLProgram;
+  public Pmatrix: WebGLUniformLocation | null = null;
+  public Vmatrix: WebGLUniformLocation | null = null;
+  public Mmatrix: WebGLUniformLocation | null = null;
+  public Nmatrix: WebGLUniformLocation | null = null;
 
   constructor(canvas: HTMLCanvasElement) {
     const gl = canvas.getContext("webgl");
@@ -48,5 +52,19 @@ class ContextGL {
     this.vertexShader = vertexShader;
     this.fragmentShader = fragmentShader;
     this.program = program;
+  }
+
+  initMatrix() {
+    this.Pmatrix = this.gl.getUniformLocation(this.program, "Pmatrix");
+    this.Vmatrix = this.gl.getUniformLocation(this.program, "Vmatrix");
+    this.Mmatrix = this.gl.getUniformLocation(this.program, "Mmatrix");
+    this.Nmatrix = this.gl.getUniformLocation(this.program, "Nmatrix");
+  }
+
+  clear() {
+    this.gl.clearColor(0.0, 0.0, 0.0, 0.0);
+    this.gl.clearDepth(1.0);
+    this.gl.viewport(0, 0, this.gl.canvas.width, this.gl.canvas.height);
+    this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
   }
 }

@@ -65,7 +65,7 @@ class ElmtContainer {
     const buttonProjPerspective = document.getElementById(
       "button-proj-perspective"
     );
-    const buttonProjOblique = document.getElementById("button-proj-frustum");
+    const buttonProjOblique = document.getElementById("button-proj-oblique");
 
     if (!(canvas instanceof HTMLCanvasElement)) {
       throw new Error("Canvas not found");
