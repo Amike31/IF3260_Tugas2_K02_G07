@@ -61,9 +61,11 @@ class Model {
 
     if (globalVars.isShading) {
       // TODO
+      this.normals = shading_the_normal(this.modelMatrix, globalVars.camera.viewMatrix);
     } else {
-      gl.uniformMatrix4fv(Nmatrix, false, defaultMatrix.normal);
+      this.normals = defaultMatrix.normal;
     }
+    gl.uniformMatrix4fv(Nmatrix, false, this.normals);
 
     for (let i = this.offset; i < this.end; i++) {
       gl.drawArrays(gl.TRIANGLE_FAN, i * 4, 4);

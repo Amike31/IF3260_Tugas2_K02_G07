@@ -99,6 +99,12 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
         drawAll(contextGL);
     });
 
+    // SHADE
+    elmtContainer.shaderOn.addEventListener("click", () => {
+        globalVars.isShading = elmtContainer.shaderOn.checked;
+        drawAll(contextGL);
+    })
+
     // RESET
     elmtContainer.buttonReset.addEventListener("click", () => {
         resetConfig(elmtContainer);
