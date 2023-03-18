@@ -7,6 +7,9 @@ interface IModelProps {
   color: number[];
   normals: number[];
   modelMatrix: number[];
+  oldRotateX: number;
+  oldRotateY: number;
+  oldRotateZ: number;
 }
 
 class Model {
@@ -18,9 +21,9 @@ class Model {
   public color: number[];
   public normals: number[];
   public modelMatrix: number[];
-  public oldRotateX: number = 0;
-  public oldRotateY: number = 0;
-  public oldRotateZ: number = 0;
+  public oldRotateX: number;
+  public oldRotateY: number;
+  public oldRotateZ: number;
 
   constructor(props: IModelProps) {
     this.name = props.name;
@@ -31,6 +34,9 @@ class Model {
     this.color = props.color;
     this.normals = props.normals;
     this.modelMatrix = props.modelMatrix;
+    this.oldRotateX = props.oldRotateX;
+    this.oldRotateY = props.oldRotateY;
+    this.oldRotateZ = props.oldRotateZ;
   }
 
   getCenterPoint(): number[] {

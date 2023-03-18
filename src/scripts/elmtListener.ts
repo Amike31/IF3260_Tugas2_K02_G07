@@ -118,4 +118,18 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
         resetConfig(elmtContainer);
         sceneSetup(contextGL);
     });
+
+    // SAVE & LOAD
+    elmtContainer.buttonSave.addEventListener("click", () => {
+        saveConfig();
+    });
+    elmtContainer.loadInput.addEventListener("change", () => {
+        loadConfigFromFile(elmtContainer.loadInput.files?.item(0) as File);
+        setTimeout(function() {
+            drawAll(contextGL);
+            updateCameraSlider(elmtContainer);
+            updateSelected(elmtContainer.selectShape.value);
+            updateRotationSlider(elmtContainer, globalVars.selectedIdx);
+        }, 500);
+    });
 }

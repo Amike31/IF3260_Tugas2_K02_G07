@@ -26,6 +26,8 @@ class ElmtContainer {
   public readonly buttonProjOblique: HTMLButtonElement;
   public readonly horizontalCamera: HTMLInputElement;
   public readonly verticalCamera: HTMLInputElement;
+  public readonly buttonSave: HTMLButtonElement;
+  public readonly loadInput: HTMLInputElement;
 
   constructor() {
     const canvas = document.getElementById("canvas");
@@ -67,6 +69,9 @@ class ElmtContainer {
 
     const horizontalCamera = document.getElementById("camera-horizontal");
     const verticalCamera = document.getElementById("camera-vertical");
+
+    const buttonSave = document.getElementById("save");
+    const loadInput = document.getElementById("load");
 
     if (!(canvas instanceof HTMLCanvasElement)) {
       throw new Error("Canvas not found");
@@ -149,6 +154,12 @@ class ElmtContainer {
     if (!(verticalCamera instanceof HTMLInputElement)) {
       throw new Error("Horizontal camera not found");
     }
+    if (!(buttonSave instanceof HTMLButtonElement)) {
+      throw new Error("save not found");
+    }
+    if (!(loadInput instanceof HTMLInputElement)) {
+      throw new Error("Load not found");
+    }
 
     this.canvas = canvas;
     this.selectShape = selectShape;
@@ -177,5 +188,7 @@ class ElmtContainer {
     this.buttonProjOblique = buttonProjOblique;
     this.horizontalCamera = horizontalCamera;
     this.verticalCamera = verticalCamera;
+    this.buttonSave = buttonSave;
+    this.loadInput = loadInput;
   }
 }

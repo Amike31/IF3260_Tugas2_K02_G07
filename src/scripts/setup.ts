@@ -103,6 +103,9 @@ const sceneSetup = (contextGL: ContextGL) => {
     color: colors.slice(0, 96 * 3),
     normals: vertexNormals.slice(0, 96 * 3),
     modelMatrix: defaultMatrix.model,
+    oldRotateX: 0,
+    oldRotateY: 0,
+    oldRotateZ: 0,
   });
 
   let pyramid = new Model({
@@ -114,6 +117,9 @@ const sceneSetup = (contextGL: ContextGL) => {
     color: colors.slice(96 * 3, 96 * 3 + 64 * 3),
     normals: vertexNormals.slice(96 * 3, 96 * 3 + 64 * 3),
     modelMatrix: defaultMatrix.model,
+    oldRotateX: 0,
+    oldRotateY: 0,
+    oldRotateZ: 0,
   });
 
   let prism = new Model({
@@ -124,7 +130,10 @@ const sceneSetup = (contextGL: ContextGL) => {
     vertices: globalVars.vertices.slice(96 * 3 + 64 * 3, 96 * 3 + 64 * 3 + 80 * 3),
     color: colors.slice(96 * 3 + 64 * 3, 96 * 3 + 64 * 3 + 80 * 3),
     normals: vertexNormals.slice(96 * 3 + 64 * 3, 96 * 3 + 64 * 3 + 80 * 3),
-    modelMatrix: defaultMatrix.model
+    modelMatrix: defaultMatrix.model,
+    oldRotateX: 0,
+    oldRotateY: 0,
+    oldRotateZ: 0,
   });
 
   globalVars.models.push(
