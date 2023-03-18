@@ -29,6 +29,12 @@ function updateRotationSlider(elmtContainer: ElmtContainer, id: number) {
   elmtContainer.rotateZObject.valueAsNumber = globalVars.models[id].oldRotateZ;  
 }
 
+function updateCameraSlider(elmtContainer: ElmtContainer, camera: Camera) {
+  elmtContainer.cameraRotateX.valueAsNumber = camera.oldHorizontal;
+  elmtContainer.cameraRotateY.valueAsNumber = camera.oldVertical;
+  elmtContainer.cameraRotateZ.valueAsNumber = camera.oldCameraZ;
+}
+
 function resetConfig(elmtContainer: ElmtContainer){
   resetRotationSlider(elmtContainer);
   resetCameraSlider(elmtContainer);
