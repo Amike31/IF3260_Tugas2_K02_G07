@@ -87,6 +87,10 @@ const verticesSetup = () => {
       globalVars.vertices.push(prismVertices[i]);
     }
   }
+
+  globalVars.colors = colors;
+  globalVars.normals = vertexNormals;
+
 };
 
 const sceneSetup = (contextGL: ContextGL) => {
