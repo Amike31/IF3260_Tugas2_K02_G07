@@ -88,10 +88,10 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
         globalVars.camera.slide("x", elmtContainer.horizontalCamera.valueAsNumber);
         drawAll(contextGL);
     });
-    // elmtContainer.verticalCamera.addEventListener("input", () => {
-    //     globalVars.camera.slide("y", elmtContainer.verticalCamera.valueAsNumber);
-    //     drawAll(contextGL);
-    // });
+    elmtContainer.verticalCamera.addEventListener("input", () => {
+        globalVars.camera.slide("y", elmtContainer.verticalCamera.valueAsNumber);
+        drawAll(contextGL);
+    });
 
     // PROJECTION
     elmtContainer.buttonProjOrthographic.addEventListener("click", () => {
