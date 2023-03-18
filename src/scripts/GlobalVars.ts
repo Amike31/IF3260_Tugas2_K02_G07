@@ -17,7 +17,9 @@ class GlobalVars {
     oldCameraY: 0,
     oldCameraZ: 0,
     viewMatrix: defaultMatrix.view,
-    projMatrix: defaultMatrix.projection});
+    projMatrix: defaultMatrix.projection,
+    oldHorizontal: 0,
+    oldVertical: 0});
 }
 
 const globalVars = new GlobalVars();

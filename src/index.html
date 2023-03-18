@@ -343,11 +343,29 @@
             </div>
           </div>
         </div>
-        <!-- Canvas -->
-        <div class="w-9/12 h-full bg-gray-700">
-          <canvas id="canvas" width="1200" height="1200" class="bg-white">
-            Oops ... your browser doesn't support the HTML5 canvas element
-          </canvas>
+        <!-- Canvas & Slider -->
+        <div class="flex flex-col w-9/12 bg-gray-700">
+          <!-- Horizontal Slider -->
+          <div class="flex flex-row my-2">
+            <input
+                  class="w-10/12 mx-6"
+                  type="range"
+                  id="camera-horizontal"
+                  name="scale"
+                  min="-1"
+                  max="1"
+                  step="0.05"
+                />
+          </div>
+          <!-- Canvas -->
+          <div class="flex flex-row">
+            <div class="w-11/12">
+              <canvas id="canvas" width="1200" height="1200" class="bg-white">
+                Oops ... your browser doesn't support the HTML5 canvas element
+              </canvas>
+            </div>
+            <!-- Vertical Slider -->
+            
         </div>
       </div>
     </div>

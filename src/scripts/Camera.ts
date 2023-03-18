@@ -4,6 +4,8 @@ interface ICameraProps {
     oldCameraZ: number;
     viewMatrix: number[];
     projMatrix: number[];
+    oldHorizontal: number;
+    oldVertical: number;
 }
 
 class Camera {
@@ -12,6 +14,8 @@ class Camera {
     public oldCameraZ: number;
     public viewMatrix: number[];
     public projMatrix: number[];
+    public oldHorizontal: number;
+    public oldVertical: number;
 
     constructor(props: ICameraProps) {
         this.oldCameraX = props.oldCameraX;
@@ -19,6 +23,8 @@ class Camera {
         this.oldCameraZ = props.oldCameraZ;
         this.viewMatrix = props.viewMatrix;
         this.projMatrix = props.projMatrix;
+        this.oldHorizontal = props.oldHorizontal;
+        this.oldVertical = props.oldVertical;
     }
 
 
@@ -94,5 +100,17 @@ class Camera {
         let transMat = affine_translation(transFixing, transFixing, transFixing);
         let affine_oblique = multiply_matrix_by_array(transMat, shearMat);
         return affine_oblique
+    }
+    slide(type: string, value: number){
+        let slide_value: number = 0;
+        if (type == 'x') {
+            slide_value = value - this.oldHorizontal;
+            this.oldHorizontal = value;
+            this.viewMatrix = multiply_matrix_by_array(affine_translation(-slide_value, 0, 0), this.viewMatrix);
+        } else if (type == 'y') {
+            slide_value = value - this.oldVertical;
+            this.oldVertical = value;
+            this.viewMatrix = multiply_matrix_by_array(affine_translation(0, -slide_value, 0), this.viewMatrix);
+        }
     }
 }

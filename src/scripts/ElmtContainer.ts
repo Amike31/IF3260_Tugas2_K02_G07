@@ -24,6 +24,8 @@ class ElmtContainer {
   public readonly buttonProjOrthographic: HTMLButtonElement;
   public readonly buttonProjPerspective: HTMLButtonElement;
   public readonly buttonProjOblique: HTMLButtonElement;
+  public readonly horizontalCamera: HTMLInputElement;
+  // public readonly verticalCamera: HTMLInputElement;
 
   constructor() {
     const canvas = document.getElementById("canvas");
@@ -59,13 +61,12 @@ class ElmtContainer {
     const shaderOn = document.getElementById("shader");
     const buttonReset = document.getElementById("button-reset");
 
-    const buttonProjOrthographic = document.getElementById(
-      "button-proj-orthographic"
-    );
-    const buttonProjPerspective = document.getElementById(
-      "button-proj-perspective"
-    );
+    const buttonProjOrthographic = document.getElementById("button-proj-orthographic");
+    const buttonProjPerspective = document.getElementById("button-proj-perspective");
     const buttonProjOblique = document.getElementById("button-proj-oblique");
+
+    const horizontalCamera = document.getElementById("camera-horizontal");
+    // const verticalCamera = document.getElementById("camera-vertical");
 
     if (!(canvas instanceof HTMLCanvasElement)) {
       throw new Error("Canvas not found");
@@ -142,6 +143,12 @@ class ElmtContainer {
     if (!(buttonProjOblique instanceof HTMLButtonElement)) {
       throw new Error("Button proj oblique not found");
     }
+    if (!(horizontalCamera instanceof HTMLInputElement)) {
+      throw new Error("Horizontal camera not found");
+    }
+    // if (!(verticalCamera instanceof HTMLInputElement)) {
+    //   throw new Error("Horizontal camera not found");
+    // }
 
     this.canvas = canvas;
     this.selectShape = selectShape;
@@ -168,5 +175,7 @@ class ElmtContainer {
     this.buttonProjOrthographic = buttonProjOrthographic;
     this.buttonProjPerspective = buttonProjPerspective;
     this.buttonProjOblique = buttonProjOblique;
+    this.horizontalCamera = horizontalCamera;
+    // this.verticalCamera = verticalCamera;
   }
 }
