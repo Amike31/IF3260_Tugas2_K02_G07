@@ -90,30 +90,41 @@ const verticesSetup = () => {
 };
 
 const sceneSetup = (contextGL: ContextGL) => {
-  globalVars.models.push(
-    new Model({
-      name: "cube",
-      offset: 0,
-      end: 24,
-      numVertices: 96,
-      vertices: globalVars.vertices.slice(0, 96 * 3),
-      color: colors.slice(0, 96 * 3),
-      normals: vertexNormals.slice(0, 96 * 3),
-      modelMatrix: defaultMatrix.model,
-    })
-  );
+  let cube = new Model({
+    name: "cube",
+    offset: 0,
+    end: 24,
+    numVertices: 96,
+    vertices: globalVars.vertices.slice(0, 96 * 3),
+    color: colors.slice(0, 96 * 3),
+    normals: vertexNormals.slice(0, 96 * 3),
+    modelMatrix: defaultMatrix.model,
+  });
+
+  let pyramid = new Model({
+    name: "pyramid",
+    offset: 24,
+    end: 40,
+    numVertices: 64,
+    vertices: globalVars.vertices.slice(96 * 3, 96 * 3 + 64 * 3),
+    color: colors.slice(96 * 3, 96 * 3 + 64 * 3),
+    normals: vertexNormals.slice(96 * 3, 96 * 3 + 64 * 3),
+    modelMatrix: defaultMatrix.model,
+  });
+
+  let prism = new Model({
+    name: "prism",
+    offset: 40,
+    end: 60,
+    numVertices: 80,
+    vertices: globalVars.vertices.slice(96 * 3 + 64 * 3, 96 * 3 + 64 * 3 + 80 * 3),
+    color: colors.slice(96 * 3 + 64 * 3, 96 * 3 + 64 * 3 + 80 * 3),
+    normals: vertexNormals.slice(96 * 3 + 64 * 3, 96 * 3 + 64 * 3 + 80 * 3),
+    modelMatrix: defaultMatrix.model
+  });
 
   globalVars.models.push(
-    new Model({
-      name: "pyramid",
-      offset: 24,
-      end: 40,
-      numVertices: 64,
-      vertices: globalVars.vertices.slice(96 * 3, 96 * 3 + 64 * 3),
-      color: colors.slice(96 * 3, 96 * 3 + 64 * 3),
-      normals: vertexNormals.slice(96 * 3, 96 * 3 + 64 * 3),
-      modelMatrix: defaultMatrix.model,
-    })
+    cube, pyramid, prism
   );
 
   drawAll(contextGL);
