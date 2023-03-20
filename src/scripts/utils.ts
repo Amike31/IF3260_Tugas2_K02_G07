@@ -53,6 +53,8 @@ function resetConfig(elmtContainer: ElmtContainer){
     elmtContainer.cameraRotateX.valueAsNumber = 0;
     elmtContainer.cameraRotateY.valueAsNumber = 0;
     elmtContainer.cameraRotateZ.valueAsNumber = 0;
+    elmtContainer.horizontalCamera.valueAsNumber = 0;
+    elmtContainer.verticalCamera.valueAsNumber = 0;
   }
   
   function resetCameraConfig(camera: Camera) {
