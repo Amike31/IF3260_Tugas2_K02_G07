@@ -36,27 +36,21 @@ function multiply_matrix_by_array(a: number[], b: number[]): number[] {
 }
 
 // Matrix transpose
-function transpose_matrix(a: number[][]) {
+function transpose_matrix(a: number[]) : number[] {
+    let b = array1DtoMatrix(a);
     const result: number[][] = [];
     for (let i = 0; i < ROWS; i++) {
         result[i] = [];
         for (let j = 0; j < COLS; j++) {
-            result[i][j] = a[j][i];
+            result[i][j] = b[j][i];
         }
     }
-    return result;
+    return matrix1DtoArray(result);
 }
 
 // Matrix inverse, Matrix initiation by 0 for all elements
-function invert_matrix(a: number[][]) {
-    const copied: number[][] = [];
-    for (let i = 0; i < ROWS; i++) {
-        copied[i] = [];
-        for (let j = 0; j < COLS; j++) {
-            copied[i][j] = a[i][j];
-        }
-    }
-    
+function invert_matrix(a: number[]) : number[] {
+    const copied: number[][] = array1DtoMatrix(a);
     const result: number[][] = [];
     for (let i = 0; i < ROWS; i++) {
         result[i] = [];
@@ -100,5 +94,21 @@ function invert_matrix(a: number[][]) {
         }
     }
     
+    return matrix1DtoArray(result);
+}
+
+function array1DtoMatrix(a: number[]): number[][] {
+    let result: number[][] = [];
+    for (let i = 0; i < ROWS; i++) {
+        result.push(a.slice(i * ROWS, i * ROWS + COLS));
+    }
+    return result;
+}
+
+function matrix1DtoArray(a: number[][]): number[] {
+    let result: number[] = [];
+    for (let i = 0; i < ROWS; i++) {
+        result.push(...a[i]);
+    }
     return result;
 }

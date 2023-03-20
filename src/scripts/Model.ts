@@ -67,7 +67,7 @@ class Model {
 
     if (globalVars.isShading) {
       // TODO
-      this.normals = shading_the_normal(this.modelMatrix, globalVars.camera.viewMatrix);
+      this.normals = globalVars.camera.shading_the_normal(this.modelMatrix);
     } else {
       this.normals = defaultMatrix.normal;
     }

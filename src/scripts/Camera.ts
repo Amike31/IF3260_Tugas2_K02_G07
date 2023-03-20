@@ -51,6 +51,13 @@ class Camera {
             this.viewMatrix = multiply_matrix_by_array(affine_rotation_z(rotate_value), this.viewMatrix);
         }
     }
+
+    shading_the_normal(model: number[]) {
+        let mvMul = multiply_matrix_by_array(model, this.viewMatrix);
+        let normalMatrix = transpose_matrix(invert_matrix(mvMul));
+        return normalMatrix;
+    }
+
     setProjection(projection: string) {
         if (projection == "orthographic") {
             console.log("orthographic");
