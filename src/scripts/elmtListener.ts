@@ -89,7 +89,7 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
         drawAll(contextGL);
     });
     elmtContainer.verticalCamera.addEventListener("input", () => {
-        globalVars.camera.slide("y", elmtContainer.verticalCamera.valueAsNumber);
+        globalVars.camera.slide("y", -elmtContainer.verticalCamera.valueAsNumber);
         drawAll(contextGL);
     });
 
