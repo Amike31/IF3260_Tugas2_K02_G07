@@ -1,4 +1,5 @@
 function drawAll(contextGL: ContextGL) {
+  console.log("drawAll", globalVars.models);
   globalVars.models.forEach((model) => {
     model.draw(contextGL);
   });

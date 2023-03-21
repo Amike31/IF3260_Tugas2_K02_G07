@@ -13,6 +13,7 @@ class GlobalVars {
   public colors: number[] = [];
   public normals: number[] = [];
   public models: Model[] = [];
+  public defaultModels: Model[] = [];
   public camera: Camera = new Camera({
     oldCameraX: 0,
     oldCameraY: 0,
