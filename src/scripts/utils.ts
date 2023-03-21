@@ -94,42 +94,52 @@ function saveConfig() {
   link.click();
 }
 
+const parseCameraData = (camData: ICameraData) => {
+  return new Camera({
+    oldCameraX: camData.oldCameraX,
+    oldCameraY: camData.oldCameraY,
+    oldCameraZ: camData.oldCameraZ,
+    viewMatrix: camData.viewMatrix,
+    projMatrix: camData.projMatrix,
+    oldHorizontal: camData.oldHorizontal,
+    oldVertical: camData.oldVertical,
+  });
+};
+
+const parseModelsData = (modelsData: IModelsData) => {
+  const models: Model[] = [];
+  for (const key in modelsData) {
+    const model = modelsData[key];
+    models.push(
+      new Model({
+        name: model.name,
+        offset: model.offset,
+        end: model.end,
+        numVertices: model.numVertices,
+        vertices: model.vertices,
+        color: model.color,
+        normals: model.normals,
+        modelMatrix: model.modelMatrix,
+        oldRotateX: model.oldRotateX,
+        oldRotateY: model.oldRotateY,
+        oldRotateZ: model.oldRotateZ,
+      })
+    );
+  }
+
+  return models;
+};
+
 function loadConfigFromFile(file: File) {
   const reader = new FileReader();
   reader.onload = function (e) {
-    const data = JSON.parse(e.target?.result as string);
+    const data: ISavedData = JSON.parse(e.target?.result as string);
 
     // GET CAMERA DATA FROM FILE
-    globalVars.camera = new Camera({
-      oldCameraX: data.camera.oldCameraX,
-      oldCameraY: data.camera.oldCameraY,
-      oldCameraZ: data.camera.oldCameraZ,
-      viewMatrix: data.camera.viewMatrix,
-      projMatrix: data.camera.projMatrix,
-      oldHorizontal: data.camera.oldHorizontal,
-      oldVertical: data.camera.oldVertical,
-    });
+    globalVars.camera = parseCameraData(data.camera);
 
     // GET MODEL DATA FROM FILE
-    globalVars.models = [];
-    for (const key in data.models) {
-      const model = data.models[key];
-      globalVars.models.push(
-        new Model({
-          name: model.name,
-          offset: model.offset,
-          end: model.end,
-          numVertices: model.numVertices,
-          vertices: model.vertices,
-          color: model.color,
-          normals: model.normals,
-          modelMatrix: model.modelMatrix,
-          oldRotateX: model.oldRotateX,
-          oldRotateY: model.oldRotateY,
-          oldRotateZ: model.oldRotateZ,
-        })
-      );
-    }
+    globalVars.models = parseModelsData(data.models);
 
     // GET SHADING DATA FROM FILE
     globalVars.isShading = data.isShading;

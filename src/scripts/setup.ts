@@ -63,6 +63,18 @@ const bufferSetup = (contextGL: ContextGL) => {
   contextGL.clear();
 };
 
+const modelSetup = async (filepath: string) => {
+  const res = await fetch(filepath);
+  if (!res.ok) {
+    throw new Error("File not found");
+  }
+
+  const data = await res.json();
+  const models = parseModelsData(data);
+
+  console.log(models);
+};
+
 const verticesSetup = () => {
   for (let i = 0; i < 12 * 4 * 6; i++) {
     if (i % 3 === 0) {

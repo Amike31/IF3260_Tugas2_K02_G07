@@ -1,17 +1,3 @@
-interface IModelProps {
-  name: string;
-  offset: number;
-  end: number;
-  numVertices: number;
-  vertices: number[];
-  color: number[];
-  normals: number[];
-  modelMatrix: number[];
-  oldRotateX: number;
-  oldRotateY: number;
-  oldRotateZ: number;
-}
-
 class Model {
   public readonly name: string;
   public offset: number;
@@ -25,7 +11,7 @@ class Model {
   public oldRotateY: number;
   public oldRotateZ: number;
 
-  constructor(props: IModelProps) {
+  constructor(props: IModelData) {
     this.name = props.name;
     this.offset = props.offset;
     this.end = props.end;
