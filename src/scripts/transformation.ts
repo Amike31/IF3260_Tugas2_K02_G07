@@ -2,11 +2,11 @@ function translate_object(axis: string, value: number) {
   let x = 0;
   let y = 0;
   let z = 0;
-  if (axis == "x") {
+  if (axis === "x") {
     x = value;
-  } else if (axis == "y") {
+  } else if (axis === "y") {
     y = value;
-  } else if (axis == "z") {
+  } else if (axis === "z") {
     z = value;
   }
 
@@ -57,7 +57,7 @@ function rotate_object(axis: string, value: number) {
   let affineMatrix: number[] = [];
   let angle: number = 0;
   let rotation_Matrix = null;
-  if (axis == "x") {
+  if (axis === "x") {
     angle = value - globalVars.models[globalVars.selectedIdx].oldRotateX;
     globalVars.models[globalVars.selectedIdx].oldRotateX = value;
     rotation_Matrix = affine_rotation_x(angle);
@@ -65,7 +65,7 @@ function rotate_object(axis: string, value: number) {
       toOrigin,
       multiply_matrix_by_array(rotation_Matrix, fromOrigin)
     );
-  } else if (axis == "y") {
+  } else if (axis === "y") {
     angle = value - globalVars.models[globalVars.selectedIdx].oldRotateY;
     globalVars.models[globalVars.selectedIdx].oldRotateY = value;
     rotation_Matrix = affine_rotation_y(angle);
@@ -73,7 +73,7 @@ function rotate_object(axis: string, value: number) {
       toOrigin,
       multiply_matrix_by_array(rotation_Matrix, fromOrigin)
     );
-  } else if (axis == "z") {
+  } else if (axis === "z") {
     angle = value - globalVars.models[globalVars.selectedIdx].oldRotateZ;
     globalVars.models[globalVars.selectedIdx].oldRotateZ = value;
     rotation_Matrix = affine_rotation_z(angle);

@@ -39,21 +39,21 @@ class Camera {
     // Adjust the value to fit UI of Web
     value /= 55;
     let rotate_value: number = 0;
-    if (axis == "x") {
+    if (axis === "x") {
       rotate_value = value - this.oldCameraX;
       this.oldCameraX = value;
       this.viewMatrix = multiply_matrix_by_array(
         affine_rotation_x(rotate_value),
         this.viewMatrix
       );
-    } else if (axis == "y") {
+    } else if (axis === "y") {
       rotate_value = value - this.oldCameraY;
       this.oldCameraY = value;
       this.viewMatrix = multiply_matrix_by_array(
         affine_rotation_y(rotate_value),
         this.viewMatrix
       );
-    } else if (axis == "z") {
+    } else if (axis === "z") {
       rotate_value = value - this.oldCameraZ;
       this.oldCameraZ = value;
       this.viewMatrix = multiply_matrix_by_array(
@@ -70,13 +70,13 @@ class Camera {
   }
 
   setProjection(projection: string) {
-    if (projection == "orthographic") {
+    if (projection === "orthographic") {
       console.log("orthographic");
       this.projMatrix = this.orthographic_projection(-1, 1, -1, 1, 1, 100);
-    } else if (projection == "perspective") {
+    } else if (projection === "perspective") {
       console.log("perspective");
       this.projMatrix = this.perspective_projection(45, 1, 0.1, 100);
-    } else if (projection == "oblique") {
+    } else if (projection === "oblique") {
       console.log("oblique");
       this.projMatrix = this.oblique_projection(0.4);
     }
@@ -172,14 +172,14 @@ class Camera {
   }
   slide(type: string, value: number) {
     let slide_value: number = 0;
-    if (type == "x") {
+    if (type === "x") {
       slide_value = value - this.oldHorizontal;
       this.oldHorizontal = value;
       this.viewMatrix = multiply_matrix_by_array(
         affine_translation(-slide_value, 0, 0),
         this.viewMatrix
       );
-    } else if (type == "y") {
+    } else if (type === "y") {
       slide_value = value - this.oldVertical;
       this.oldVertical = value;
       this.viewMatrix = multiply_matrix_by_array(

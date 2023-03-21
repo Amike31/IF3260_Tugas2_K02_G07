@@ -9,7 +9,7 @@ function getSelectedObjectIdx() {
 
   let selectedIdx = -1;
   for (let i = 0; i < objects.length; i++) {
-    if (objects[i].name == globalVars.selectedShape) {
+    if (objects[i].name === globalVars.selectedShape) {
       selectedIdx = i;
       break;
     }
