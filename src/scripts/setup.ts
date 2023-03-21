@@ -93,45 +93,62 @@ const verticesSetup = () => {
 };
 
 const sceneSetup = (contextGL: ContextGL) => {
-  let cube = new Model({
+  const nVerticesModels = [96, 64, 80];
+
+  const cube = new Model({
     name: "cube",
     offset: 0,
     end: 24,
-    numVertices: 96,
-    vertices: globalVars.vertices.slice(0, 96 * 3),
-    color: colors.slice(0, 96 * 3),
-    normals: vertexNormals.slice(0, 96 * 3),
+    numVertices: nVerticesModels[0],
+    vertices: globalVars.vertices.slice(0, nVerticesModels[0] * 3),
+    color: colors.slice(0, nVerticesModels[0] * 3),
+    normals: vertexNormals.slice(0, nVerticesModels[0] * 3),
     modelMatrix: defaultMatrix.model,
     oldRotateX: 0,
     oldRotateY: 0,
     oldRotateZ: 0,
   });
 
-  let pyramid = new Model({
+  const pyramid = new Model({
     name: "pyramid",
     offset: 24,
     end: 40,
-    numVertices: 64,
-    vertices: globalVars.vertices.slice(96 * 3, 96 * 3 + 64 * 3),
-    color: colors.slice(96 * 3, 96 * 3 + 64 * 3),
-    normals: vertexNormals.slice(96 * 3, 96 * 3 + 64 * 3),
+    numVertices: nVerticesModels[1],
+    vertices: globalVars.vertices.slice(
+      nVerticesModels[0] * 3,
+      nVerticesModels[0] * 3 + nVerticesModels[1] * 3
+    ),
+    color: colors.slice(
+      nVerticesModels[0] * 3,
+      nVerticesModels[0] * 3 + nVerticesModels[1] * 3
+    ),
+    normals: vertexNormals.slice(
+      nVerticesModels[0] * 3,
+      nVerticesModels[0] * 3 + nVerticesModels[1] * 3
+    ),
     modelMatrix: defaultMatrix.model,
     oldRotateX: 0,
     oldRotateY: 0,
     oldRotateZ: 0,
   });
 
-  let prism = new Model({
+  const prism = new Model({
     name: "prism",
     offset: 40,
     end: 60,
-    numVertices: 80,
+    numVertices: nVerticesModels[2],
     vertices: globalVars.vertices.slice(
-      96 * 3 + 64 * 3,
-      96 * 3 + 64 * 3 + 80 * 3
+      nVerticesModels[0] * 3 + nVerticesModels[1] * 3,
+      nVerticesModels[0] * 3 + nVerticesModels[1] * 3 + nVerticesModels[2] * 3
     ),
-    color: colors.slice(96 * 3 + 64 * 3, 96 * 3 + 64 * 3 + 80 * 3),
-    normals: vertexNormals.slice(96 * 3 + 64 * 3, 96 * 3 + 64 * 3 + 80 * 3),
+    color: colors.slice(
+      nVerticesModels[0] * 3 + nVerticesModels[1] * 3,
+      nVerticesModels[0] * 3 + nVerticesModels[1] * 3 + nVerticesModels[2] * 3
+    ),
+    normals: vertexNormals.slice(
+      nVerticesModels[0] * 3 + nVerticesModels[1] * 3,
+      nVerticesModels[0] * 3 + nVerticesModels[1] * 3 + nVerticesModels[2] * 3
+    ),
     modelMatrix: defaultMatrix.model,
     oldRotateX: 0,
     oldRotateY: 0,
