@@ -31,3 +31,8 @@ interface ISavedData {
   models: IModelsData;
   isShading: boolean;
 }
+
+interface IHelpConfig {
+  title: string;
+  description: string;
+}

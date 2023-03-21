@@ -88,6 +88,30 @@ const verticesSetup = (models: Model[]) => {
   }
 };
 
+const helpSetup = async (filepath: string, elmtContainer: ElmtContainer) => {
+  const res = await fetch(filepath);
+  if (!res.ok) {
+    throw new Error("File not found");
+  }
+
+  const data: IHelpConfig[] = await res.json();
+  const elmts = data.map((elmt, idx) => {
+    const title = document.createElement("h3");
+    title.textContent = idx + 1 + ". " + elmt.title;
+    const description = document.createElement("p");
+    description.textContent = elmt.description;
+
+    const container = document.createElement("div");
+    container.classList.add("help-container");
+    container.appendChild(title);
+    container.appendChild(description);
+
+    return container;
+  });
+
+  elmtContainer.modalBody.append(...elmts);
+};
+
 const sceneSetup = (contextGL: ContextGL, models: Model[]) => {
   globalVars.models = models;
   drawAll(contextGL);

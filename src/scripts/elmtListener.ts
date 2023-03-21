@@ -131,4 +131,13 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
       updateRotationSlider(elmtContainer, globalVars.selectedIdx);
     }, 500);
   });
+
+  // MODAL
+  elmtContainer.helpBtn.addEventListener("click", () => {
+    elmtContainer.modalContainer.style.display = "block";
+  });
+  elmtContainer.modalBackdrop.addEventListener("click", () => {
+    elmtContainer.modalContainer.style.display = "none";
+  });
+  console.log("addElmtListener");
 }

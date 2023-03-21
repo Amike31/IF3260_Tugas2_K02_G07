@@ -29,6 +29,9 @@ class ElmtContainer {
   public readonly buttonSave: HTMLButtonElement;
   public readonly loadInput: HTMLInputElement;
   public readonly helpBtn: HTMLButtonElement;
+  public readonly modalContainer: HTMLDivElement;
+  public readonly modalBackdrop: HTMLDivElement;
+  public readonly modalBody: HTMLDivElement;
 
   constructor() {
     const canvas = document.getElementById("canvas");
@@ -78,6 +81,10 @@ class ElmtContainer {
     const buttonSave = document.getElementById("save");
     const loadInput = document.getElementById("load");
     const helpBtn = document.getElementById("help");
+
+    const modalContainer = document.getElementById("modal-container");
+    const modalBackdrop = document.getElementById("modal-backdrop");
+    const modalBody = document.getElementById("modal-body");
 
     if (!(canvas instanceof HTMLCanvasElement)) {
       throw new Error("Canvas not found");
@@ -169,6 +176,15 @@ class ElmtContainer {
     if (!(helpBtn instanceof HTMLButtonElement)) {
       throw new Error("Help not found");
     }
+    if (!(modalContainer instanceof HTMLDivElement)) {
+      throw new Error("Modal container not found");
+    }
+    if (!(modalBackdrop instanceof HTMLDivElement)) {
+      throw new Error("Modal backdrop not found");
+    }
+    if (!(modalBody instanceof HTMLDivElement)) {
+      throw new Error("Modal body not found");
+    }
 
     this.canvas = canvas;
     this.selectShape = selectShape;
@@ -200,5 +216,8 @@ class ElmtContainer {
     this.buttonSave = buttonSave;
     this.loadInput = loadInput;
     this.helpBtn = helpBtn;
+    this.modalContainer = modalContainer;
+    this.modalBackdrop = modalBackdrop;
+    this.modalBody = modalBody;
   }
 }
