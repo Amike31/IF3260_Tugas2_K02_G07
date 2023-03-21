@@ -8,7 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx tsc --watch",
     "reset-js": "rm -rf src/dist/*.js",
-    "reset-js-windows": "del /f /s /q src\\dist\\*.js"
+    "reset-js-ws": "del /f /s /q src\\dist\\*.js",
+    "serve": "./src/index.html",
+    "serve-ws": ".\\src\\index.html"
   },
   "repository": {
     "type": "git",
