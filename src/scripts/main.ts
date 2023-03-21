@@ -5,7 +5,7 @@ const main = async () => {
   const contextGL = new ContextGL(elmtContainer.canvas);
 
   const models = await modelSetup(filepath);
-  globalVars.defaultModels = [...models]
+  globalVars.defaultModels = models.map((model) => model.copy());
 
   verticesSetup(models);
   bufferSetup(contextGL);

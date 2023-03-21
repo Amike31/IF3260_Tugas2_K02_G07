@@ -63,4 +63,20 @@ class Model {
       gl.drawArrays(gl.TRIANGLE_FAN, i * 4, 4);
     }
   }
+
+  copy(): Model {
+    return new Model({
+      name: this.name,
+      offset: this.offset,
+      end: this.end,
+      numVertices: this.numVertices,
+      vertices: this.vertices,
+      color: this.color,
+      normals: this.normals,
+      modelMatrix: this.modelMatrix,
+      oldRotateX: this.oldRotateX,
+      oldRotateY: this.oldRotateY,
+      oldRotateZ: this.oldRotateZ,
+    });
+  }
 }
