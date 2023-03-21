@@ -63,8 +63,12 @@ class ElmtContainer {
     const shaderOn = document.getElementById("shader");
     const buttonReset = document.getElementById("button-reset");
 
-    const buttonProjOrthographic = document.getElementById("button-proj-orthographic");
-    const buttonProjPerspective = document.getElementById("button-proj-perspective");
+    const buttonProjOrthographic = document.getElementById(
+      "button-proj-orthographic"
+    );
+    const buttonProjPerspective = document.getElementById(
+      "button-proj-perspective"
+    );
     const buttonProjOblique = document.getElementById("button-proj-oblique");
 
     const horizontalCamera = document.getElementById("camera-horizontal");

@@ -90,7 +90,6 @@ const verticesSetup = () => {
 
   globalVars.colors = colors;
   globalVars.normals = vertexNormals;
-
 };
 
 const sceneSetup = (contextGL: ContextGL) => {
@@ -127,7 +126,10 @@ const sceneSetup = (contextGL: ContextGL) => {
     offset: 40,
     end: 60,
     numVertices: 80,
-    vertices: globalVars.vertices.slice(96 * 3 + 64 * 3, 96 * 3 + 64 * 3 + 80 * 3),
+    vertices: globalVars.vertices.slice(
+      96 * 3 + 64 * 3,
+      96 * 3 + 64 * 3 + 80 * 3
+    ),
     color: colors.slice(96 * 3 + 64 * 3, 96 * 3 + 64 * 3 + 80 * 3),
     normals: vertexNormals.slice(96 * 3 + 64 * 3, 96 * 3 + 64 * 3 + 80 * 3),
     modelMatrix: defaultMatrix.model,
@@ -136,9 +138,7 @@ const sceneSetup = (contextGL: ContextGL) => {
     oldRotateZ: 0,
   });
 
-  globalVars.models.push(
-    cube, pyramid, prism
-  );
+  globalVars.models.push(cube, pyramid, prism);
 
   drawAll(contextGL);
 };
@@ -146,4 +146,4 @@ const sceneSetup = (contextGL: ContextGL) => {
 const selectedSetup = (elmtContainer: ElmtContainer) => {
   const selectedShape = elmtContainer.selectShape.value;
   updateSelected(selectedShape);
-}
+};
