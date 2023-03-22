@@ -9,8 +9,8 @@
     "dev": "npx tsc --watch",
     "reset-js": "rm -rf src/dist/*.js",
     "reset-js-ws": "del /f /s /q src\\dist\\*.js",
-    "serve": "php -S localhost:8000",
-    "open": "start http://localhost:8000/src/index.html",
+    "serve": "npx http-server . -p 8080",
+    "open": "start http://localhost:8080/src/index.html",
     "prettify": "npx prettier --write ."
   },
   "repository": {
