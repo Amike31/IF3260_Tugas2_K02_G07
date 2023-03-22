@@ -34,5 +34,5 @@ interface ISavedData {
 
 interface IHelpConfig {
   title: string;
-  description: string;
+  description: string[];
 }

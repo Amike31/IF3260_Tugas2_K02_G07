@@ -29,8 +29,9 @@
   border-radius: 0.5vw;
   -webkit-animation-name: backInDown;
   animation-name: backInDown;
-  /* animation: ;
-  animation-duration: 2s; */
+  display: flex;
+  flex-direction: column;
+  max-height: 80%;
 }
 
 #modal-header {
@@ -44,6 +45,10 @@
   margin-bottom: 1vw;
 }
 
+#modal-body {
+  overflow-y: auto;
+}
+
 .help-container {
   margin-bottom: 1vw;
 }
@@ -51,6 +56,10 @@
 .help-container > h3 {
   font-size: 1.25rem;
   font-weight: bold;
+}
+
+.help-desc {
+  margin-bottom: 0.5vw;
 }
 
 @-webkit-keyframes backInDown {

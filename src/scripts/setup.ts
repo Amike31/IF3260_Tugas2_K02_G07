@@ -98,13 +98,17 @@ const helpSetup = async (filepath: string, elmtContainer: ElmtContainer) => {
   const elmts = data.map((elmt, idx) => {
     const title = document.createElement("h3");
     title.textContent = idx + 1 + ". " + elmt.title;
-    const description = document.createElement("p");
-    description.textContent = elmt.description;
+    const descs = elmt.description.map((desc) => {
+      const p = document.createElement("p");
+      p.classList.add("help-desc");
+      p.textContent = desc;
+      return p;
+    });
 
     const container = document.createElement("div");
     container.classList.add("help-container");
     container.appendChild(title);
-    container.appendChild(description);
+    descs.forEach((desc) => container.appendChild(desc));
 
     return container;
   });
