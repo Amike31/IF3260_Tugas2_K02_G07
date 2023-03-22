@@ -11,6 +11,7 @@
     "reset-js-ws": "del /f /s /q src\\dist\\*.js",
     "serve": "npx http-server . -p 8080",
     "open": "start http://localhost:8080/src/index.html",
+    "start-ws": ".\\scripts\\start-ws.bat",
     "prettify": "npx prettier --write ."
   },
   "repository": {
