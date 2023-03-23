@@ -20,6 +20,7 @@ class ElmtContainer {
   public readonly buttonZoomIn: HTMLButtonElement;
   public readonly buttonZoomOut: HTMLButtonElement;
   public readonly shaderOn: HTMLInputElement;
+  public readonly animationOn: HTMLInputElement;
   public readonly buttonReset: HTMLButtonElement;
   public readonly buttonProjOrthographic: HTMLButtonElement;
   public readonly buttonProjPerspective: HTMLButtonElement;
@@ -65,6 +66,7 @@ class ElmtContainer {
     const buttonZoomIn = document.getElementById("button-zoom-in");
     const buttonZoomOut = document.getElementById("button-zoom-out");
     const shaderOn = document.getElementById("shader");
+    const animationOn = document.getElementById("animation");
     const buttonReset = document.getElementById("button-reset");
 
     const buttonProjOrthographic = document.getElementById(
@@ -149,6 +151,9 @@ class ElmtContainer {
     if (!(shaderOn instanceof HTMLInputElement)) {
       throw new Error("Shader on not found");
     }
+    if (!(animationOn instanceof HTMLInputElement)) {
+      throw new Error("Animation on not found");
+    }
     if (!(buttonReset instanceof HTMLButtonElement)) {
       throw new Error("Button reset not found");
     }
@@ -207,6 +212,7 @@ class ElmtContainer {
     this.buttonZoomIn = buttonZoomIn;
     this.buttonZoomOut = buttonZoomOut;
     this.shaderOn = shaderOn;
+    this.animationOn = animationOn;
     this.buttonReset = buttonReset;
     this.buttonProjOrthographic = buttonProjOrthographic;
     this.buttonProjPerspective = buttonProjPerspective;

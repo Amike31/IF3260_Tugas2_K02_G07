@@ -8,27 +8,21 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
   // TRANSLATION
   elmtContainer.buttonTranslateLeft.addEventListener("click", () => {
     translate_object("x", -0.1);
-    drawAll(contextGL);
   });
   elmtContainer.buttonTranslateRight.addEventListener("click", () => {
     translate_object("x", 0.1);
-    drawAll(contextGL);
   });
   elmtContainer.buttonTranslateUp.addEventListener("click", () => {
     translate_object("y", 0.1);
-    drawAll(contextGL);
   });
   elmtContainer.buttonTranslateDown.addEventListener("click", () => {
     translate_object("y", -0.1);
-    drawAll(contextGL);
   });
   elmtContainer.buttonTranslateIn.addEventListener("click", () => {
     translate_object("z", 0.1);
-    drawAll(contextGL);
   });
   elmtContainer.buttonTranslateOut.addEventListener("click", () => {
     translate_object("z", -0.1);
-    drawAll(contextGL);
   });
 
   // SCALING
@@ -37,15 +31,12 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
   });
   elmtContainer.scaleButton.addEventListener("click", () => {
     resize_object(globalVars.scaleFactor);
-    drawAll(contextGL);
   });
   elmtContainer.buttonEnlarge.addEventListener("click", () => {
     resize_object(1.2);
-    drawAll(contextGL);
   });
   elmtContainer.buttonShrink.addEventListener("click", () => {
     resize_object(0.8);
-    drawAll(contextGL);
   });
 
   // ROTATION
@@ -55,7 +46,6 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
       elmtContainer.rotateXObject.valueAsNumber,
       globalVars.models[globalVars.selectedIdx]
     );
-    drawAll(contextGL);
   });
   elmtContainer.rotateYObject.addEventListener("input", () => {
     rotate_object(
@@ -63,7 +53,6 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
       elmtContainer.rotateYObject.valueAsNumber,
       globalVars.models[globalVars.selectedIdx]
     );
-    drawAll(contextGL);
   });
   elmtContainer.rotateZObject.addEventListener("input", () => {
     rotate_object(
@@ -71,57 +60,48 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
       elmtContainer.rotateZObject.valueAsNumber,
       globalVars.models[globalVars.selectedIdx]
     );
-    drawAll(contextGL);
   });
 
   // CAMERA
   elmtContainer.buttonZoomIn.addEventListener("click", () => {
     globalVars.camera.zoom(1.1);
-    drawAll(contextGL);
   });
   elmtContainer.buttonZoomOut.addEventListener("click", () => {
     globalVars.camera.zoom(0.9);
-    drawAll(contextGL);
   });
   elmtContainer.cameraRotateX.addEventListener("input", () => {
     globalVars.camera.rotate("x", elmtContainer.cameraRotateX.valueAsNumber);
-    drawAll(contextGL);
   });
   elmtContainer.cameraRotateY.addEventListener("input", () => {
     globalVars.camera.rotate("y", elmtContainer.cameraRotateY.valueAsNumber);
-    drawAll(contextGL);
   });
   elmtContainer.cameraRotateZ.addEventListener("input", () => {
     globalVars.camera.rotate("z", elmtContainer.cameraRotateZ.valueAsNumber);
-    drawAll(contextGL);
   });
   elmtContainer.horizontalCamera.addEventListener("input", () => {
     globalVars.camera.slide("x", elmtContainer.horizontalCamera.valueAsNumber);
-    drawAll(contextGL);
   });
   elmtContainer.verticalCamera.addEventListener("input", () => {
     globalVars.camera.slide("y", -elmtContainer.verticalCamera.valueAsNumber);
-    drawAll(contextGL);
   });
 
   // PROJECTION
   elmtContainer.buttonProjOrthographic.addEventListener("click", () => {
     globalVars.camera.setProjection("orthographic");
-    drawAll(contextGL);
   });
   elmtContainer.buttonProjPerspective.addEventListener("click", () => {
     globalVars.camera.setProjection("perspective");
-    drawAll(contextGL);
   });
   elmtContainer.buttonProjOblique.addEventListener("click", () => {
     globalVars.camera.setProjection("oblique");
-    drawAll(contextGL);
   });
 
   // SHADE
   elmtContainer.shaderOn.addEventListener("click", () => {
     globalVars.isShading = elmtContainer.shaderOn.checked;
-    drawAll(contextGL);
+  });
+  elmtContainer.animationOn.addEventListener("click", () => {
+    globalVars.isAnimation = elmtContainer.animationOn.checked;
   });
 
   // RESET
@@ -137,7 +117,6 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
   elmtContainer.loadInput.addEventListener("change", () => {
     loadConfigFromFile(elmtContainer.loadInput.files?.item(0) as File);
     setTimeout(function () {
-      drawAll(contextGL);
       updateCameraSlider(elmtContainer);
       updateSelected(elmtContainer.selectShape.value);
       updateRotationSlider(elmtContainer, globalVars.selectedIdx);

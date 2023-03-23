@@ -8,6 +8,7 @@ class GlobalVars {
   public selectedIdx: number = 0;
   public scaleFactor: number = 1;
   public isShading: boolean = false;
+  public isAnimation: boolean = false;
 
   public vertices: number[] = [];
   public colors: number[] = [];

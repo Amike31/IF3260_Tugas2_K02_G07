@@ -2,7 +2,7 @@ const animatePerModel = (model: Model) => {
   const random = Math.floor(Math.random() * 3);
 
   let axis = "";
-  const additional = Math.random() * 0.01;
+  const additional = 0.001;
   let value = additional;
 
   switch (random) {

@@ -1,6 +1,14 @@
 const modelFilepath = "config/models.json";
 const helpFilepath = "config/help.json";
 
+const render = (contextGL: ContextGL) => {
+  if (globalVars.isAnimation) {
+    animate();
+  }
+  drawAll(contextGL);
+  window.requestAnimationFrame(() => render(contextGL));
+};
+
 const main = async () => {
   try {
     const elmtContainer = new ElmtContainer();
@@ -16,15 +24,7 @@ const main = async () => {
     addElmtListener(elmtContainer, contextGL);
     helpSetup(helpFilepath, elmtContainer);
 
-    const interval = setInterval(() => {
-      console.log("interval");
-      animate();
-      drawAll(contextGL);
-    }, 0.1);
-
-    window.onunload = () => {
-      clearInterval(interval);
-    };
+    window.requestAnimationFrame(() => render(contextGL));
   } catch (error) {
     console.error(error);
   }

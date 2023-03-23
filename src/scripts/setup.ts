@@ -118,7 +118,6 @@ const helpSetup = async (filepath: string, elmtContainer: ElmtContainer) => {
 
 const sceneSetup = (contextGL: ContextGL, models: Model[]) => {
   globalVars.models = models;
-  drawAll(contextGL);
 };
 
 const selectedSetup = (elmtContainer: ElmtContainer) => {
