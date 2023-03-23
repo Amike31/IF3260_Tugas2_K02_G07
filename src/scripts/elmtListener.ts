@@ -50,15 +50,27 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
 
   // ROTATION
   elmtContainer.rotateXObject.addEventListener("input", () => {
-    rotate_object("x", elmtContainer.rotateXObject.valueAsNumber);
+    rotate_object(
+      "x",
+      elmtContainer.rotateXObject.valueAsNumber,
+      globalVars.models[globalVars.selectedIdx]
+    );
     drawAll(contextGL);
   });
   elmtContainer.rotateYObject.addEventListener("input", () => {
-    rotate_object("y", elmtContainer.rotateYObject.valueAsNumber);
+    rotate_object(
+      "y",
+      elmtContainer.rotateYObject.valueAsNumber,
+      globalVars.models[globalVars.selectedIdx]
+    );
     drawAll(contextGL);
   });
   elmtContainer.rotateZObject.addEventListener("input", () => {
-    rotate_object("z", elmtContainer.rotateZObject.valueAsNumber);
+    rotate_object(
+      "z",
+      elmtContainer.rotateZObject.valueAsNumber,
+      globalVars.models[globalVars.selectedIdx]
+    );
     drawAll(contextGL);
   });
 

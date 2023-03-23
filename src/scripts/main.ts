@@ -15,6 +15,16 @@ const main = async () => {
     selectedSetup(elmtContainer);
     addElmtListener(elmtContainer, contextGL);
     helpSetup(helpFilepath, elmtContainer);
+
+    const interval = setInterval(() => {
+      console.log("interval");
+      animate();
+      drawAll(contextGL);
+    }, 0.1);
+
+    window.onunload = () => {
+      clearInterval(interval);
+    };
   } catch (error) {
     console.error(error);
   }
