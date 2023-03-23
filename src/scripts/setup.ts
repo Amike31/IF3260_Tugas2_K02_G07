@@ -116,7 +116,7 @@ const helpSetup = async (filepath: string, elmtContainer: ElmtContainer) => {
   elmtContainer.modalBody.append(...elmts);
 };
 
-const sceneSetup = (contextGL: ContextGL, models: Model[]) => {
+const sceneSetup = (models: Model[]) => {
   globalVars.models = models;
 };
 

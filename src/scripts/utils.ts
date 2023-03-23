@@ -44,6 +44,10 @@ function resetConfig(elmtContainer: ElmtContainer) {
   resetCameraSlider(elmtContainer);
   resetCameraConfig(globalVars.camera);
   resetObject();
+  console.log(
+    "models",
+    globalVars.models.map((e) => e.copy())
+  );
 
   function resetRotationSlider(elmtContainer: ElmtContainer) {
     elmtContainer.rotateXObject.valueAsNumber = 0;

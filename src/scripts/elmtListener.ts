@@ -107,7 +107,7 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
   // RESET
   elmtContainer.buttonReset.addEventListener("click", () => {
     resetConfig(elmtContainer);
-    sceneSetup(contextGL, globalVars.defaultModels);
+    sceneSetup(globalVars.defaultModels.map((e) => e.copy()));
   });
 
   // SAVE & LOAD

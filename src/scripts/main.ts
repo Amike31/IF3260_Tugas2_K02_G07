@@ -19,7 +19,7 @@ const main = async () => {
 
     verticesSetup(models);
     bufferSetup(contextGL);
-    sceneSetup(contextGL, models);
+    sceneSetup(models);
     selectedSetup(elmtContainer);
     addElmtListener(elmtContainer, contextGL);
     helpSetup(helpFilepath, elmtContainer);
