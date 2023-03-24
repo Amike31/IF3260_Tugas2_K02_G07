@@ -113,23 +113,28 @@ const parseCameraData = (camData: ICameraData) => {
 
 const parseModelsData = (modelsData: IModelsData) => {
   const models: Model[] = [];
+
+  let counterOffset = 0;
   for (const key in modelsData) {
     const model = modelsData[key];
+    const numVertices = model.vertices.length / 3;
+    const end = counterOffset + numVertices / 4;
     models.push(
       new Model({
         name: model.name,
-        offset: model.offset,
-        end: model.end,
-        numVertices: model.numVertices,
+        offset: counterOffset,
+        end,
+        numVertices,
         vertices: model.vertices,
         color: model.color,
-        normals: model.normals,
+        normals: [],
         modelMatrix: model.modelMatrix,
         oldRotateX: model.oldRotateX,
         oldRotateY: model.oldRotateY,
         oldRotateZ: model.oldRotateZ,
       })
     );
+    counterOffset = end;
   }
 
   return models;
