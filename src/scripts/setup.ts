@@ -84,8 +84,37 @@ const verticesSetup = (models: Model[]) => {
   for (const model of models) {
     globalVars.vertices.push(...model.vertices);
     globalVars.colors.push(...model.color);
-    globalVars.normals.push(...model.normals);
+    // globalVars.normals.push(...model.normals);
   }
+
+  const normals: number[] = [];
+
+  for (let i = 0; i < globalVars.vertices.length; i += 4 * 3) {
+    const arr3: number[][] = [];
+    for (let j = 0; j < 12; j += 3) {
+      arr3.push(globalVars.vertices.slice(i + j, i + j + 3));
+    }
+
+    for (let j = 0; j < 4; j++) {
+      const left = j === 0 ? 3 : j - 1;
+      const right = j === 3 ? 0 : j + 1;
+
+      const vecA = calcVector(arr3[left], arr3[j]);
+      const vecB = calcVector(arr3[right], arr3[j]);
+
+      const vecC = normalize(crossProductVector(vecA, vecB));
+      normals.push(...vecC);
+    }
+
+    // const vecA = calcVector(arr3[2], arr3[0]);
+    // const vecB = calcVector(arr3[3], arr3[1]);
+
+    // const vecC = normalize(crossProductVector(vecA, vecB));
+    // normals.push(...vecC, ...vecC, ...vecC, ...vecC);
+  }
+  console.log(normals);
+
+  globalVars.normals = normals;
 };
 
 const helpSetup = async (filepath: string, elmtContainer: ElmtContainer) => {
