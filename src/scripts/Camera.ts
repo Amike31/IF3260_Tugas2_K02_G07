@@ -83,9 +83,7 @@ class Camera {
   }
 
   shading_the_normal(model: number[]) {
-    let mvMul = multiply_matrix_by_array(model, this.viewMatrix);
-    let normalMatrix = transpose_matrix(invert_matrix(mvMul));
-    return normalMatrix;
+    return model;
   }
 
   setProjection(projection: string) {
