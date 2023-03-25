@@ -80,6 +80,8 @@ class Camera {
       console.log("oblique");
       this.projMatrix = this.oblique_projection(0.4);
     }
+
+    console.log(this.projMatrix);
   }
   orthographic_projection(
     left: number,
@@ -96,27 +98,13 @@ class Camera {
     let e = top + bottom;
     let f = far + near;
     let affine_orthographic = [
-      2 / a,
-      0,
-      0,
-      -d / a,
-      0,
-      2 / b,
-      0,
-      -e / b,
-      0,
-      0,
-      -2 / c,
-      -f / c,
-      0,
-      0,
-      0,
-      1,
+      2 / a, 0, 0,0,
+      0, 2 / b, 0, 0,
+      0, 0, -2 / c, 0,
+      -d / a, -e / b, -f / c, 1,
     ];
-    return multiply_matrix_by_array(
-      defaultMatrix.projection,
-      affine_orthographic
-    );
+
+    return affine_orthographic;
   }
   perspective_projection(
     fov: number,
@@ -148,22 +136,10 @@ class Camera {
   }
   oblique_projection(shearFactor: number) {
     let shearMat = [
-      1,
-      0,
-      0,
-      0,
-      0,
-      1,
-      0,
-      0,
-      shearFactor,
-      shearFactor,
-      shearFactor,
-      0,
-      0,
-      0,
-      0,
-      1,
+      1, 0, 0, 0,
+      0, 1, 0, 0,
+      shearFactor, shearFactor, shearFactor, 0,
+      0, 0, 0, 1,
     ];
     let transFixing = shearFactor * 1.5;
     let transMat = affine_translation(transFixing, transFixing, transFixing);

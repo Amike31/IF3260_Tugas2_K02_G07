@@ -24,6 +24,10 @@ class GlobalVars {
     oldHorizontal: 0,
     oldVertical: 0,
   });
+
+  constructor() {
+    this.camera.setProjection("orthographic");
+  }
 }
 
 const globalVars = new GlobalVars();
