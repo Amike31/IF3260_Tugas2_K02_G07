@@ -19,6 +19,7 @@ const main = async () => {
 
     verticesSetup(models);
     bufferSetup(contextGL);
+    resetConfig(elmtContainer);
     sceneSetup(models);
     selectedSetup(elmtContainer);
     addElmtListener(elmtContainer, contextGL);

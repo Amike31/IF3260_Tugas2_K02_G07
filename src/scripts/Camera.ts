@@ -78,7 +78,7 @@ class Camera {
       this.projMatrix = this.perspective_projection(45, 1, 0.1, 100);
     } else if (projection === "oblique") {
       console.log("oblique");
-      this.projMatrix = this.oblique_projection(0.4);
+      this.projMatrix = this.oblique_projection(0.5, Math.PI / 4, this.orthographic_projection(-1, 1, -1, 1, 1, 4));
     }
 
     console.log(this.projMatrix);
@@ -134,17 +134,29 @@ class Camera {
     ];
     return affine_perspective;
   }
-  oblique_projection(shearFactor: number) {
-    let shearMat = [
+  oblique_projection(shearFactor: number, theta: number, matOrtho: number[]) {
+    const cosTheta = Math.cos(theta);
+    const sinTheta = Math.sin(theta);
+
+    const shearMat = [
       1, 0, 0, 0,
       0, 1, 0, 0,
-      shearFactor, shearFactor, shearFactor, 0,
+      shearFactor * cosTheta, shearFactor * sinTheta, 1, 0,
       0, 0, 0, 1,
     ];
-    let transFixing = shearFactor * 1.5;
-    let transMat = affine_translation(transFixing, transFixing, transFixing);
-    let affine_oblique = multiply_matrix_by_array(transMat, shearMat);
-    return affine_oblique;
+
+    return multiply_matrix_by_array(matOrtho, shearMat);
+
+    // let shearMat = [
+    //   1, 0, 0, 0,
+    //   0, 1, 0, 0,
+    //   shearFactor * Math.cos(theta) , shearFactor * Math.sin(theta), 0, 0,
+    //   0, 0, 0, 1,
+    // ];
+    // let transFixing = shearFactor * 1.5;
+    // let transMat = affine_translation(transFixing, transFixing, transFixing);
+    // let affine_oblique = multiply_matrix_by_array(transMat, shearMat);
+    // return affine_oblique;
   }
   slide(type: string, value: number) {
     let slide_value: number = 0;

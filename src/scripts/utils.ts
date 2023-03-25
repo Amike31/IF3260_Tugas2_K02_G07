@@ -43,6 +43,7 @@ function resetConfig(elmtContainer: ElmtContainer) {
   resetRotationSlider(elmtContainer);
   resetCameraSlider(elmtContainer);
   resetCameraConfig(globalVars.camera);
+  globalVars.camera.setProjection("orthographic");
   resetObject();
   console.log(
     "models",
