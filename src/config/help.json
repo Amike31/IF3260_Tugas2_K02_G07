@@ -2,32 +2,43 @@
   {
     "title": "Proyeksi",
     "description": [
-      "Cara Mengganti proyeksi adalah dengan cara Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis ullamcorper ullamcorper. Praesent neque neque, condimentum at tristique pretium, tempor in lorem. Nunc gravida maximus eros a gravida. Nunc non ipsum lacus. Ut vitae neque mollis, dictum mi dignissim, mollis odio. Integer suscipit lorem non elit dignissim, eu tincidunt orci condimentum. Suspendisse hendrerit ultricies magna, vulputate vulputate justo lobortis non. Maecenas vel nulla vitae tellus lobortis vestibulum non eu velit. Suspendisse eu maximus nibh. Vivamus finibus viverra dui sed varius. Sed nisi nunc, venenatis a arcu ac, congue posuere ligula."
+      "Cara mengganti proyeksi adalah dengan cara menekan tombol yang ada pada bagian projection yang terdiri atas 3 projection yakni: ",
+      "1. Orthographic",
+      "Proyeksi orthographic atau proyeksi ortogonal adalah jenis proyeksi yang menggambarkan objek secara dua dimensi dari sudut pandang yang tegak lurus dengan permukaannya.",
+      "2. Perspective",
+      "Proyeksi perspektif adalah jenis proyeksi yang menggambarkan objek dari sudut pandang yang mempertimbangkan efek perspektif.",
+      "3. Oblique",
+      "Proyeksi oblique adalah jenis proyeksi yang menggambarkan objek dengan sudut pandang yang lebih condong atau miring."
     ]
   },
   {
     "title": "Camera",
     "description": [
-      "Cara Mengganti camera adalah dengan cara Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis ullamcorper ullamcorper. Praesent neque neque, condimentum at tristique pretium, tempor in lorem. Nunc gravida maximus eros a gravida. Nunc non ipsum lacus. Ut vitae neque mollis, dictum mi dignissim, mollis odio. Integer suscipit lorem non elit dignissim, eu tincidunt orci condimentum. Suspendisse hendrerit ultricies magna, vulputate vulputate justo lobortis non. Maecenas vel nulla vitae tellus lobortis vestibulum non eu velit. Suspendisse eu maximus nibh. Vivamus finibus viverra dui sed varius. Sed nisi nunc, venenatis a arcu ac, congue posuere ligula.",
-      "Cara Mengganti camera adalah dengan cara Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis ullamcorper ullamcorper. Praesent neque neque, condimentum at tristique pretium, tempor in lorem. Nunc gravida maximus eros a gravida. Nunc non ipsum lacus. Ut vitae neque mollis, dictum mi dignissim, mollis odio. Integer suscipit lorem non elit dignissim, eu tincidunt orci condimentum. Suspendisse hendrerit ultricies magna, vulputate vulputate justo lobortis non. Maecenas vel nulla vitae tellus lobortis vestibulum non eu velit. Suspendisse eu maximus nibh. Vivamus finibus viverra dui sed varius. Sed nisi nunc, venenatis a arcu ac, congue posuere ligula."
+      "Cara mengganti camera adalah dengan cara menggeser skala pada slider yang terletak di bagian Camera Angle. Terdapat 3 sudut yang dapat diubah untuk perspektif cameranya yakni X-axis, Y-axis, dan Z-axis."
     ]
   },
   {
     "title": "Lampu",
     "description": [
-      "Cara Mengganti lampu adalah dengan cara Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis ullamcorper ullamcorper. Praesent neque neque, condimentum at tristique pretium, tempor in lorem. Nunc gravida maximus eros a gravida. Nunc non ipsum lacus. Ut vitae neque mollis, dictum mi dignissim, mollis odio. Integer suscipit lorem non elit dignissim, eu tincidunt orci condimentum. Suspendisse hendrerit ultricies magna, vulputate vulputate justo lobortis non. Maecenas vel nulla vitae tellus lobortis vestibulum non eu velit. Suspendisse eu maximus nibh. Vivamus finibus viverra dui sed varius. Sed nisi nunc, venenatis a arcu ac, congue posuere ligula."
+      "Cara mengganti lampu adalah dengan cara menambahkankan atau menghilangkan check pada checkbox bagian Shader."
     ]
   },
   {
-    "title": "model",
+    "title": "Model",
     "description": [
-      "Cara Mengganti model adalah dengan cara Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis ullamcorper ullamcorper. Praesent neque neque, condimentum at tristique pretium, tempor in lorem. Nunc gravida maximus eros a gravida. Nunc non ipsum lacus. Ut vitae neque mollis, dictum mi dignissim, mollis odio. Integer suscipit lorem non elit dignissim, eu tincidunt orci condimentum. Suspendisse hendrerit ultricies magna, vulputate vulputate justo lobortis non. Maecenas vel nulla vitae tellus lobortis vestibulum non eu velit. Suspendisse eu maximus nibh. Vivamus finibus viverra dui sed varius. Sed nisi nunc, venenatis a arcu ac, congue posuere ligula."
+      "Cara mengganti model adalah dengan cara memilih object pada dropdown di sebelah kanan Hollow object."
     ]
   },
   {
     "title": "Tranformasi",
     "description": [
-      "Cara Mengganti transformasi adalah dengan cara Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis ullamcorper ullamcorper. Praesent neque neque, condimentum at tristique pretium, tempor in lorem. Nunc gravida maximus eros a gravida. Nunc non ipsum lacus. Ut vitae neque mollis, dictum mi dignissim, mollis odio. Integer suscipit lorem non elit dignissim, eu tincidunt orci condimentum. Suspendisse hendrerit ultricies magna, vulputate vulputate justo lobortis non. Maecenas vel nulla vitae tellus lobortis vestibulum non eu velit. Suspendisse eu maximus nibh. Vivamus finibus viverra dui sed varius. Sed nisi nunc, venenatis a arcu ac, congue posuere ligula."
+      "Terdapat 3 jenis transformasi yang digunakan, yakni:",
+      "1. Rotate (rotasi)",
+      "Cara melakukan rotasi adalah dengan cara menggeser skala pada slider yang terletak di bagian Rotate. Terdapat 3 sudut yang dapat diubah untuk perspektif cameranya yakni X-axis, Y-axis, dan Z-axis.",
+      "2. Translate (translasi)",
+      "Cara melakukan translasi adalah dengan cara menekan tombol yang ada pada bagian Translate yang terdiri atas 6 arah, yakni kiri, kanan, atas, bawah, depan, dan belakang.",
+      "3. Resize (dilatasi)",
+      "Cara melakukan dilatasi ada 2, yakni adalah dengan cara mengisi skala yang diinginkan untuk ukuran bangun yang baru, kemudian menekan tombol resize. Sedangkan cara kedua melalui tombol yang terletak di bawah Resize, yaitu untuk melakukan resize (memperbesar maupun memperkecil) dengan skala tetap."
     ]
   }
 ]
