@@ -64,10 +64,10 @@ function addElmtListener(elmtContainer: ElmtContainer, contextGL: ContextGL) {
 
   // CAMERA
   elmtContainer.buttonZoomIn.addEventListener("click", () => {
-    globalVars.camera.zoom(1.1);
+    globalVars.camera.zoom(1);
   });
   elmtContainer.buttonZoomOut.addEventListener("click", () => {
-    globalVars.camera.zoom(0.9);
+    globalVars.camera.zoom(-1);
   });
   elmtContainer.cameraRotateX.addEventListener("input", () => {
     globalVars.camera.rotate("x", elmtContainer.cameraRotateX.valueAsNumber);

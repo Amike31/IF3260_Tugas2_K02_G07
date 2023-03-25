@@ -116,3 +116,13 @@ function matrix1DtoArray(a: number[][]): number[] {
   }
   return result;
 }
+
+const mulMatVec = (mat: number[], vector: number[]) => {
+  const result = new Array(ROWS).fill(0);
+  for (let i = 0; i < ROWS; i++) {
+    for (let j = 0; j < COLS; j++) {
+      result[i] += mat[i * COLS + j] * vector[j];
+    }
+  }
+  return result;
+}

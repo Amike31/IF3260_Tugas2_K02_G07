@@ -72,6 +72,9 @@ function resetConfig(elmtContainer: ElmtContainer) {
     camera.oldCameraZ = 0;
     camera.oldHorizontal = 0;
     camera.oldVertical = 0;
+    camera.totalCameraX = 0;
+    camera.totalCameraY = 0;
+    camera.totalCameraZ = 0;
   }
 
   function resetObject() {

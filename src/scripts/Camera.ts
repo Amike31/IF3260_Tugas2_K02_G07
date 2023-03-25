@@ -16,6 +16,9 @@ class Camera {
   public projMatrix: number[];
   public oldHorizontal: number;
   public oldVertical: number;
+  public totalCameraX: number = 0;
+  public totalCameraY: number = 0;
+  public totalCameraZ: number = 0;
 
   constructor(props: ICameraProps) {
     this.oldCameraX = props.oldCameraX;
@@ -28,11 +31,24 @@ class Camera {
   }
 
   zoom(value: number) {
-    let oldViewMat = this.viewMatrix.slice();
-    this.viewMatrix = multiply_matrix_by_array(
-      affine_scaling(value, value, value),
+    const oldViewMat = this.viewMatrix.slice();
+    const vec = [0, 0, value / 4, 0];
+
+    const rotXmat = affine_rotation_x(this.oldCameraX);
+    const rotYmat = affine_rotation_y(this.oldCameraY);
+    const rotZmat = affine_rotation_z(this.oldCameraZ);
+
+    const vecX = mulMatVec(rotXmat, vec);
+    const vecY = mulMatVec(rotYmat, vecX);
+    const vecZ = mulMatVec(rotZmat, vecY);
+
+    console.log("vecZ", vecZ);
+
+    const multiplied = multiply_matrix_by_array(
+      affine_translation(vecZ[0], vecZ[1], vecZ[2]),
       oldViewMat
     );
+    this.viewMatrix = multiplied;
   }
 
   rotate(axis: string, value: number) {
@@ -46,6 +62,7 @@ class Camera {
         affine_rotation_x(rotate_value),
         this.viewMatrix
       );
+      this.totalCameraX += rotate_value * 55;
     } else if (axis === "y") {
       rotate_value = value - this.oldCameraY;
       this.oldCameraY = value;
@@ -53,6 +70,7 @@ class Camera {
         affine_rotation_y(rotate_value),
         this.viewMatrix
       );
+      this.totalCameraY += rotate_value * 55;
     } else if (axis === "z") {
       rotate_value = value - this.oldCameraZ;
       this.oldCameraZ = value;
@@ -60,6 +78,7 @@ class Camera {
         affine_rotation_z(rotate_value),
         this.viewMatrix
       );
+      this.totalCameraZ += rotate_value * 55;
     }
   }
 
